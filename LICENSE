@@ -1,0 +1,27 @@
+Different components of this repository may be available under different
+licenses.
+
+All metadata in this repository is MIT licensed unless otherwise stated.
+Source code included in tree for individual recipes (e.g. patches) are under
+the LICENSE stated in the associated recipe (.bb file) unless
+otherwise stated.
+
+See LICENSE.MIT for details of the MIT license.
+
+It is preferred that any documentation in this repo be available under
+the CC-BY-SA-4 license.
+
+See LICENSE.CC-BY-SA-4.0 for details of that license.
+
+License information for any other files is either explicitly stated
+or defaults to MIT.
+
+Individual files contain an SPDX tag instead of the full license
+text to identify their license.  The following example would indicate
+that the MIT license is applicable to the containing file.
+
+    SPDX-License-Identifier: MIT
+
+Use of SPDX tags enables machine processing of license information
+based on the SPDX License Identifiers that are available at:
+http://spdx.org/licenses/
