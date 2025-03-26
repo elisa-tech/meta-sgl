@@ -1,0 +1,7 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/machine/beaglev-fire.yml
+    - kas/common.yml
+    - kas/sgl/sgl.yml
