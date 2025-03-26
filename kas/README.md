@@ -17,7 +17,7 @@ pip3 install kas
 After you have sourced the environment where kas is installed you may get the
 kas configuration by cloning meta-sgl:
 ```
-git clone -b build https://github.com/robwoolley/meta-sgl
+git clone https://github.com/robwoolley/meta-sgl
 ```
 
 ## Running kas
