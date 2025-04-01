@@ -13,11 +13,11 @@ source venv/bin/activate
 pip3 install kas
 ```
 
-## Clone the meta-ros build branch
+## Clone the meta-sgl build branch
 After you have sourced the environment where kas is installed you may get the
 kas configuration by cloning meta-sgl:
 ```
-git clone https://github.com/robwoolley/meta-sgl
+git clone https://github.com/elisa-tech/meta-sgl
 ```
 
 ## Running kas
