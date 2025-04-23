@@ -1,0 +1,72 @@
+name: Build SGL QEMU ARM64
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: "Setup Env & Build"
+    runs-on: ubuntu-24.04
+    env:
+      # Directory for kas to store work files and build artifacts
+      KAS_WORK_DIR: "${{ github.workspace }}/kas-build"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          path: layers/meta-sgl
+
+      - name: Set up cache for Yocto downloads
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.KAS_WORK_DIR }}/downloads
+          key: ${{ runner.os }}-yocto-downloads-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yocto-downloads-
+
+      - name: Set up cache for sstate
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.KAS_WORK_DIR }}/sstate-cache
+          key: ${{ runner.os }}-yocto-sstate-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yocto-sstate-
+
+      - name: Install host dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gawk wget git-core diffstat unzip texinfo \
+            gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm \
+            python3-pexpect python3-pip
+
+      - name: Re-enable user namespaces and disable AppArmor restriction
+        run: |
+          # Re-enable unprivileged user namespaces
+          sudo sysctl -w kernel.unprivileged_userns_clone=1
+          # Disable AppArmor restriction for user namespaces
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install kas and BitBake
+        run: |
+          python -m pip install --upgrade pip
+          pip install kas
+
+      - name: Build SGL
+        run: |
+          # Determine available cores for parallel build
+          CORES=$(nproc)
+          export BB_NUMBER_THREADS=$CORES
+          export PARALLEL_MAKE="-j$CORES"
+          mkdir -p "$KAS_WORK_DIR"
+          kas build layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml
