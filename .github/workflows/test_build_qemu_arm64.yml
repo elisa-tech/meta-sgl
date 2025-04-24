@@ -13,6 +13,7 @@ jobs:
     name: "Setup Env & Build"
     runs-on: ubuntu-24.04
     env:
+      # Directory for kas to store work files and build artifacts
       KAS_WORK_DIR: "${{ github.workspace }}/kas-build"
 
     steps:
@@ -20,6 +21,22 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: layers/meta-sgl
+
+      - name: Set up cache for Yocto downloads
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.KAS_WORK_DIR }}/downloads
+          key: ${{ runner.os }}-yocto-downloads-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yocto-downloads-
+
+      - name: Set up cache for sstate
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.KAS_WORK_DIR }}/sstate-cache
+          key: ${{ runner.os }}-yocto-sstate-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yocto-sstate-
 
       - name: Install host dependencies
         run: |
@@ -47,9 +64,9 @@ jobs:
 
       - name: Build SGL
         run: |
+          # Determine available cores for parallel build
+          CORES=$(nproc)
+          export BB_NUMBER_THREADS=$CORES
+          export PARALLEL_MAKE="-j$CORES"
           mkdir -p "$KAS_WORK_DIR"
           kas build layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml
-
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
