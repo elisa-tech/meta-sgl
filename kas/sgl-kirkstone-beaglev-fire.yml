@@ -5,3 +5,8 @@ header:
     - kas/machine/beaglev-fire.yml
     - kas/common.yml
     - kas/sgl/sgl.yml
+
+repos:
+  polarfire:
+    branch:
+    tag: "v2024.09"
