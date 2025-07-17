@@ -1,3 +1,7 @@
 venv/
 docs/node_modules/
 docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/dist
+docs/cache
+docs/*.local/
