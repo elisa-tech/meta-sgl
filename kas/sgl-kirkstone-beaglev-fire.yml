@@ -10,3 +10,10 @@ repos:
   polarfire:
     branch:
     tag: "v2024.09"
+
+local_conf_header:
+    image_features: |
+        IMAGE_FEATURES:append = " ${OPTIONAL_FEATURES}"
+
+env:
+    OPTIONAL_FEATURES: "" # override on cmdline
