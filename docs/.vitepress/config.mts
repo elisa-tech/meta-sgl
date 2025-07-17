@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { getHighlighter } from 'shiki'
+import { createHighlighter } from 'shiki'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -14,6 +14,12 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Introduction',
+        items: [
+          { text: 'What is SGL?', link: '/what-is-sgl' },
+        ]
+      },
+      {
         text: 'Guides',
         items: [
           { text: 'Building', link: '/building' },
@@ -24,11 +30,16 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/elisa-tech/meta-sgl' },
       { icon: 'discord', link: 'https://chat.elisa.tech/' }
-    ]
+    ],
+
+    footer: {
+      message: 'Docs released under CC-BY-SA-4.0 license. Code released under MIT license.',
+      copyright: 'ELISA Project a Series of LF Projects, LLC'
+    },
   },
   markdown: {
     async config(md) {
-      const highlighter = await getHighlighter({
+      const highlighter = await createHighlighter({
         themes: [ 'catppuccin-frappe', 'catppuccin-latte' ],
         langs: [
           'bash',
