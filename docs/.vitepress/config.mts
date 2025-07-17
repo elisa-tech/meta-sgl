@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { getHighlighter } from 'shiki'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -13,22 +14,43 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Guides',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Building', link: '/building' },
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/elisa-tech/meta-sgl' }
+      { icon: 'github', link: 'https://github.com/elisa-tech/meta-sgl' },
+      { icon: 'discord', link: 'https://chat.elisa.tech/' }
     ]
   },
   markdown: {
-    theme: {
-      light: "catpuccin-latte",
-      dark: "catpuccin-frappe",
-    },
+    async config(md) {
+      const highlighter = await getHighlighter({
+        themes: [ 'catppuccin-frappe', 'catppuccin-latte' ],
+        langs: [
+          'bash',
+          'python',
+          'json',
+          'yaml',
+          'cpp',
+          'dockerfile',
+          'makefile',
+          'sh'
+        ]
+      })
+
+      md.options.highlight = (code, lang) => {
+        return highlighter.codeToHtml(code, {
+          lang,
+          theme: {
+            light: 'catppuccin-latte',
+            dark: 'catppuccin-frappe'
+          }
+        })
+      }
+    }
   },
 })

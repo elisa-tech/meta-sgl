@@ -5,21 +5,11 @@ layout: home
 hero:
   name: "meta-sgl"
   text: "Space Grade Linux"
-  tagline: My great project tagline
+  tagline: Building a space ready linux distribution
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Build Guide
+      link: /building
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 

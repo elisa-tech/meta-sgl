@@ -1,8 +1,4 @@
-import type { Theme } from "vitepress";
-import { catppuccinTheme } from '@catppuccin/vitepress'
+import DefaultTheme from "vitepress/theme";
+import '@catppuccin/vitepress/theme/frappe/green.css'
 
-const theme: Theme = {
-  ...catppuccinTheme()
-}
-
-export default theme;
+export default DefaultTheme;
