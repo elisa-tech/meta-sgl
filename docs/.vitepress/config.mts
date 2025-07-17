@@ -5,7 +5,7 @@ import { createHighlighter } from 'shiki'
 export default defineConfig({
   title: "meta-sgl",
   description: "Space Grade Linux",
-  base: '/meta-sgl/',
+  base: '/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
