@@ -10,7 +10,7 @@ SpaceROS.
 ## Who's behind the project?
 
 The project is hosted under the [ELISA Project](https://elisa.tech), part of the Linux
-Foundation, and is being stwearded under the Space Grade Linux SIG
+Foundation, and is being stewarded under the Space Grade Linux SIG
 currently under ELISA's TSC, formed by ELISA members and Space industry
 organizations that align with our vision.
 
