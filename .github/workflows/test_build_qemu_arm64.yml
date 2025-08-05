@@ -13,8 +13,8 @@ jobs:
     name: "Setup Env & Build"
     runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64/image=ubuntu24-full-arm64/extras=s3-cache
     env:
-      # Directory for kas to store work files and build artifacts
       KAS_WORK_DIR: "${{ github.workspace }}/kas-build"
+      HARDWARE_ARCH: qemuarm64
 
     steps:
       - uses: runs-on/action@v2
@@ -26,16 +26,16 @@ jobs:
       - name: Set up cache for Yocto downloads
         uses: actions/cache@v4
         with:
-          path: ${{ env.KAS_WORK_DIR }}/downloads
-          key: ${{ runner.os }}-yocto-downloads-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          path: ${{ env.KAS_WORK_DIR }}/build/downloads
+          key: ${{ runner.os }}-yocto-downloads-${{ env.HARDWARE_ARCH }}-${{ hashFiles('kas/common.yml', 'kas/sgl/sgl.yml', 'kas/yocto/**/*.yml') }}
           restore-keys: |
             ${{ runner.os }}-yocto-downloads-
 
       - name: Set up cache for sstate
         uses: actions/cache@v4
         with:
-          path: ${{ env.KAS_WORK_DIR }}/sstate-cache
-          key: ${{ runner.os }}-yocto-sstate-${{ hashFiles('layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml') }}
+          path: ${{ env.KAS_WORK_DIR }}/build/sstate-cache
+          key: ${{ runner.os }}-yocto-sstate-${{ env.HARDWARE_ARCH }}-${{ hashFiles('kas/common.yml', 'kas/sgl/sgl.yml', 'kas/yocto/**/*.yml') }}
           restore-keys: |
             ${{ runner.os }}-yocto-sstate-
 
