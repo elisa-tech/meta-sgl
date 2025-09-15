@@ -5,3 +5,10 @@ header:
     - kas/machine/qemuarm64.yml
     - kas/common.yml
     - kas/sgl/sgl.yml
+
+local_conf_header:
+    image_features: |
+        IMAGE_FEATURES:append = " ${OPTIONAL_FEATURES}"
+
+env:
+    OPTIONAL_FEATURES: "" # override on cmdline
