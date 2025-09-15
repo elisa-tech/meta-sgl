@@ -41,7 +41,7 @@ build/tmp-glibc/deploy/images/qemuriscv64/core-image-minimal-qemuriscv64.rootfs.
 
 ## Running QEMU
 
-To run the qemu images can run this example command:
+You can run the images in QEMU by executing them with the proper runtime. Here's an example command:
 
 ```bash
 cd $KAS_WORK_DIR
