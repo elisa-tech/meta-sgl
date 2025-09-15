@@ -420,5 +420,7 @@ Space Grade Linux 0.1 qemuriscv64 ttyS0
 qemuriscv64 login: 
 ```
 
-default login is `root` without password
+::: info
+The default login is `root` without a password. You can quit QEMU with `Ctrl A - x`.
+:::
 
