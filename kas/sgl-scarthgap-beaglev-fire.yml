@@ -10,4 +10,5 @@ header:
 repos:
   polarfire:
     branch:
-    tag: "v2025.03"
+    # tag: "linux4microchip+fpga-2025.07"
+    commit: "b04ce9003b12e1f681e1b9eb2e4582de22aebf4f"
