@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "kirkstone"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.26/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-4.0.32/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "1efbe1004bc82e7c14c1e8bd4ce644f5015c3346"
+    commit: "2ed3f8b938579dbbb804e04c45a968cc57761db7"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.0"
-    commit: "046871d9fd76efdca7b72718b328d8f545523f7e"
+    commit: "8e2d1f8de055549b2101614d85454fcd1d0f94b2"
     path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "f8dddbfcbfe502cb71375a7a907e61a92e8d4474"
+    commit: "7d4507f226bd2af939d4482fb14a809867ece939"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
@@ -37,6 +37,16 @@ repos:
       meta-python:
       meta-webserver:
       meta-xfce:
+
+  clang-revival:
+    branch: "main"
+    layers:
+      meta-clang-revival: "disabled"
+
+  python-ai:
+    branch: "master"
+    layers:
+      meta-python-ai: "disabled"
 
 local_conf_header:
   distro: |
