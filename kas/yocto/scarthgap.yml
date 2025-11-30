@@ -1,15 +1,17 @@
 header:
   version: 14
+  includes:
+    - kas/layer/clang-revival.yml
 
 defaults:
   repos:
     branch: "scarthgap"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.0.9/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.0.14/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "04038ecd1edd6592b826665a2b787387bb7074fa"
+    commit: "471adaa5f77fa3b974eab60a2ded48e360042828"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +19,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.8"
-    commit: "696c2c1ef095f8b11c7d2eff36fae50f58c62e5e"
+    commit: "8dcf084522b9c66a6639b5f117f554fde9b6b45a"
     path: "layers/bitbake"
     layers:
       bitbake: "excluded"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "e92d0173a80ea7592c866618ef5293203c50544c"
+    commit: "2b26d30fc7f478f5735d514f0c1bc28f6a4148b6"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
