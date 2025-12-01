@@ -10,3 +10,7 @@ repos:
       meta-ros2:
       meta-spaceros:
       meta-spaceros-jazzy:
+
+local_conf_header:
+  spaceros: |
+    IMAGE_INSTALL:append = "packagegroup-spaceros-jazzy-world"
