@@ -2,10 +2,9 @@ header:
   version: 14
 
 repos:
-  sgl:
+  spaceros:
     url: "https://github.com/ros/meta-ros.git"
     path: "layers/meta-ros"
-    branch: "main"
     layers:
       meta-ros-common:
       meta-ros2:
