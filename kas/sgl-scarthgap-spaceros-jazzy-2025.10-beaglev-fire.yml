@@ -1,0 +1,15 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/machine/beaglev-fire.yml
+    - kas/common.yml
+    - kas/sgl/sgl.yml
+    - kas/sgl/clang.yml
+    - kas/spaceros/jazzy-2025.10.yml
+
+repos:
+  polarfire:
+    branch:
+    # tag: "linux4microchip+fpga-2025.07"
+    commit: "b04ce9003b12e1f681e1b9eb2e4582de22aebf4f"
