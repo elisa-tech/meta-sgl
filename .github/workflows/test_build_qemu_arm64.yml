@@ -19,8 +19,9 @@ jobs:
     steps:
       - uses: runs-on/action@v2
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           path: layers/meta-sgl
 
       - name: Set up cache for Yocto downloads
@@ -62,6 +63,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install kas
+
+      - name: KAS checkout correct ref
+        run: |
+          cat <<PRCOMMIT > prcommit.yml
+          header:
+            version: 14
+
+          repos:
+            sgl:
+              commit:"${{ github.event.pull_request.head.sha }}"
+          PRCOMMIT
+          kas checkout --update layers/meta-sgl/kas/sgl-scarthgap-qemuarm64.yml:prcommit.yml
 
       - name: Build SGL
         run: |
