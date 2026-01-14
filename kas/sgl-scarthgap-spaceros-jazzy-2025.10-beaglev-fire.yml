@@ -6,6 +6,7 @@ header:
     - kas/common.yml
     - kas/sgl/sgl.yml
     - kas/sgl/clang.yml
+    - kas/spaceros/jazzy-2025.10.yml
 
 repos:
   polarfire:
