@@ -2,11 +2,24 @@ header:
   version: 14
   includes:
     - kas/yocto/kirkstone.yml
-    - kas/machine/beaglev-fire.yml
     - kas/common.yml
     - kas/sgl/sgl.yml
 
+machine: "beaglev-fire"
+
 repos:
   polarfire:
+    url: "https://github.com/polarfire-soc/meta-polarfire-soc-yocto-bsp.git"
+    path: "layers/meta-polarfire-soc-yocto-bsp"
     branch:
     tag: "v2024.09"
+    layers:
+      meta-polarfire-soc-bsp:
+      meta-polarfire-soc-community:
+      meta-polarfire-soc-extras:
+
+local_conf_header:
+  # https://git.openembedded.org/openembedded-core/commit/meta/recipes-extended/pam?id=95ed1fa4ff74a77deade51ad73b2f8963ff81548
+  pamfix: |
+    REQUIRED_DISTRO_FEATURES:remove:pn-libpam = "pam"
+    ANY_OF_DISTRO_FEATURES:pn-libpam = "pam systemd"
