@@ -5,3 +5,4 @@ header:
     - kas/machine/qemuarm64.yml
     - kas/common.yml
     - kas/sgl/sgl.yml
+    - kas/sgl/clang.yml

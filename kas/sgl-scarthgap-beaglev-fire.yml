@@ -5,6 +5,7 @@ header:
     - kas/machine/beaglev-fire.yml
     - kas/common.yml
     - kas/sgl/sgl.yml
+    - kas/sgl/clang.yml
 
 repos:
   polarfire:
