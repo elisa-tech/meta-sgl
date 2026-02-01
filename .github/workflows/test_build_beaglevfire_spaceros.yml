@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: "Setup Env & Build"
-    runs-on: runs-on=${{ github.run_id }}/runner=16cpu-linux-arm64/image=ubuntu24-full-arm64/extras=s3-cache
+    runs-on: runs-on=${{ github.run_id }}/runner=16cpu-linux-arm64/image=ubuntu24-full-arm64/extras=s3-cache/disk=large
     env:
       KAS_WORK_DIR: "${{ github.workspace }}/kas-build"
       HARDWARE_ARCH: beaglev-fire
