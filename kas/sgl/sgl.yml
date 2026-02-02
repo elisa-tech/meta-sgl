@@ -13,3 +13,12 @@ repos:
 
 target:
   - core-image-minimal
+
+local_conf_header:
+  sgl_image_common: |
+    INHERIT += "sgl-image-common"
+  optional_features: |
+    IMAGE_FEATURES:append = " ${OPTIONAL_FEATURES}"
+
+env:
+  OPTIONAL_FEATURES: ""
