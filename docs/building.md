@@ -45,7 +45,14 @@ You can run the images in QEMU by executing them with the proper runtime. Here's
 
 ```bash
 cd $KAS_WORK_DIR
-qemu-system-riscv64   -M virt   -m 512M   -nographic   -kernel build/tmp-glibc/deploy/images/qemuriscv64/Image   -append "root=/dev/vda rw console=ttyS0"   -drive file=build/tmp-glibc/deploy/images/qemuriscv64/core-image-minimal-qemuriscv64.rootfs.ext4,format=raw,id=hd0   -device virtio-blk-device,drive=hd0   -netdev user,id=net0 -device virtio-net-device,netdev=net0
+qemu-system-riscv64 \
+  -M virt -m 512M -nographic \
+  -kernel build/tmp-glibc/deploy/images/qemuriscv64/Image \
+  -append "root=/dev/vda rw console=ttyS0" \
+  -drive file=build/tmp-glibc/deploy/images/qemuriscv64/core-image-minimal-qemuriscv64.rootfs.ext4,format=raw,id=hd0 \
+  -device virtio-blk-device,drive=hd0 \
+  -netdev user,id=net0 \
+  -device virtio-net-device,netdev=net0
 ```
 
 It would produce output similar to:
