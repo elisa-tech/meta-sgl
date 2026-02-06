@@ -1,0 +1,9 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/machine/qemuriscv64.yml
+    - kas/common.yml
+    - kas/sgl/sgl.yml
+    - kas/sgl/clang.yml
+    - kas/spaceros/jazzy-2025.10.yml
