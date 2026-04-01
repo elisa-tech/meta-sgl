@@ -13,6 +13,7 @@ hero:
     - theme: alt
       text: Build Guide
       link: /building
+
   image:
     src: /images/space-tux.svg
     alt: Space Tux
