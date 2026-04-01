@@ -22,7 +22,7 @@ runners:
 
   large-x64:
     cpu: 32
-    family: ["c7ad", "c7id", "m7id"]
+    family: ["c7a", "c7i", "m7a", "m7i", "c6a", "c6i"]
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
