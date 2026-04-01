@@ -26,3 +26,4 @@ runners:
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
+    volume: "500gb:gp3"
