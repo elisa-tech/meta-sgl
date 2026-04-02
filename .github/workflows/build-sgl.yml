@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: runs-on/action@v2
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: kas-build/layers/meta-sgl
 
@@ -88,7 +88,7 @@ jobs:
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.x'
 
@@ -105,3 +105,38 @@ jobs:
           export PARALLEL_MAKE="-j$CORES"
           mkdir -p "$KAS_WORK_DIR"
           kas build $KAS_WORK_DIR/layers/meta-sgl/kas/${{ inputs.kas_config }}:$KAS_WORK_DIR/layers/meta-sgl/kas/ci/local-checkout.yml
+
+      - name: Collect build artifacts
+        if: always()
+        run: |
+          # Find deploy directory — TMPDIR may be tmp, tmp-glibc, etc.
+          DEPLOY_DIR=$(find "$KAS_WORK_DIR/build" -path "*/deploy/images/$HARDWARE_ARCH" -type d 2>/dev/null | head -1)
+          ARTIFACT_DIR="$KAS_WORK_DIR/artifacts"
+          mkdir -p "$ARTIFACT_DIR"
+          if [ -n "$DEPLOY_DIR" ] && [ -d "$DEPLOY_DIR" ]; then
+            echo "Found deploy directory: $DEPLOY_DIR"
+            # Copy images (kernel, rootfs, wic) — follow symlinks, skip massive files
+            for f in "$DEPLOY_DIR"/*.ext4 "$DEPLOY_DIR"/*.tar.bz2 "$DEPLOY_DIR"/*.wic.gz "$DEPLOY_DIR"/*.manifest "$DEPLOY_DIR"/*.qemuboot.conf; do
+              [ -e "$f" ] && cp -L "$f" "$ARTIFACT_DIR"/ 2>/dev/null || true
+            done
+            # Copy kernel — it may be named Image, bzImage, or zImage
+            for f in "$DEPLOY_DIR"/Image "$DEPLOY_DIR"/Image.gz "$DEPLOY_DIR"/bzImage "$DEPLOY_DIR"/zImage; do
+              [ -e "$f" ] && cp -L "$f" "$ARTIFACT_DIR"/ 2>/dev/null || true
+            done
+            # Copy device tree blobs
+            for f in "$DEPLOY_DIR"/*.dtb; do
+              [ -e "$f" ] && cp -L "$f" "$ARTIFACT_DIR"/ 2>/dev/null || true
+            done
+          fi
+          # List what we collected
+          echo "Build artifacts:"
+          ls -lh "$ARTIFACT_DIR"/ 2>/dev/null || echo "No artifacts found"
+
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: sgl-${{ inputs.hardware_arch }}-${{ inputs.build_profile }}
+          path: ${{ env.KAS_WORK_DIR }}/artifacts/
+          retention-days: 14
+          if-no-files-found: warn
