@@ -1,0 +1,17 @@
+# Use this overlay when building from a local checkout of meta-sgl.
+# Setting url to null and providing path tells kas to use the local directory
+# instead of cloning from the remote repository.
+#
+# Usage:
+#   kas build kas/sgl-scarthgap-qemuarm64.yml:kas/ci/local-checkout.yml
+#
+# See: https://kas.readthedocs.io/en/latest/userguide/project-configuration.html
+
+header:
+  version: 14
+
+repos:
+  sgl:
+    url:
+    branch:
+    path: layers/meta-sgl
