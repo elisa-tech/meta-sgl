@@ -1,0 +1,17 @@
+name: QEMU RISCV64 + SpaceROS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-sgl.yml
+    with:
+      kas_config: sgl-scarthgap-spaceros-jazzy-2025.10-qemuriscv64.yml
+      hardware_arch: qemuriscv64
+      build_profile: spaceros

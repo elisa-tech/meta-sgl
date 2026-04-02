@@ -1,0 +1,8 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/scarthgap.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml
+    - kas/sgl/sgl.yml
+    - kas/sgl/clang.yml
