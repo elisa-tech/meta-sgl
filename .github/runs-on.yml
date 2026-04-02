@@ -1,19 +1,17 @@
 runners:
   small-arm64:
     cpu: 16
-    family: ["c7g", "m7g"]
+    family: ["c7gd", "m7gd"]
     image: ubuntu24-full-arm64
     extras: ["s3-cache"]
     spot: false
-    volume: "100gb:gp3"
 
   small-x64:
     cpu: 16
-    family: ["c7a", "c7i", "m7a"]
+    family: ["c6id", "c7id", "c7ad"]
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
-    volume: "100gb:gp3"
 
   large-arm64:
     cpu: 32
@@ -24,8 +22,7 @@ runners:
 
   large-x64:
     cpu: 32
-    family: ["c7a", "c7i", "m7a", "m7i", "c6a", "c6i"]
+    family: ["c6id", "c7id", "c7ad", "m7id", "m7ad"]
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
-    volume: "500gb:gp3"
