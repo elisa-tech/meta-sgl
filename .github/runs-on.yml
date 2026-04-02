@@ -5,6 +5,7 @@ runners:
     image: ubuntu24-full-arm64
     extras: ["s3-cache"]
     spot: false
+    volume: "100gb:gp3"
 
   small-x64:
     cpu: 16
@@ -12,6 +13,7 @@ runners:
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
+    volume: "100gb:gp3"
 
   large-arm64:
     cpu: 32
