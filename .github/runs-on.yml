@@ -1,28 +1,28 @@
 runners:
-  small-arm64:
-    cpu: 16
+  default-arm64:
+    cpu: 32
     family: ["c7gd", "m7gd"]
     image: ubuntu24-full-arm64
     extras: ["s3-cache"]
     spot: false
 
-  small-x64:
-    cpu: 16
-    family: ["c6id", "c7id", "c7ad"]
+  default-x64:
+    cpu: 32
+    family: ["c6id", "m6id"]
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
 
-  large-arm64:
-    cpu: 32
+  xlarge-arm64:
+    cpu: 64
     family: ["c7gd", "m7gd"]
     image: ubuntu24-full-arm64
     extras: ["s3-cache"]
     spot: false
 
-  large-x64:
-    cpu: 32
-    family: ["c6id", "c7id", "c7ad", "m7id", "m7ad"]
+  xlarge-x64:
+    cpu: 64
+    family: ["c6id", "m6id"]
     image: ubuntu24-full-x64
     extras: ["s3-cache"]
     spot: false
