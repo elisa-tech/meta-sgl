@@ -126,54 +126,11 @@ Identifier](https://spdx.dev/) near the top. Use:
 If a file pulls in third-party material under a different license, record
 that license in the file header and, where relevant, in the recipe.
 
-## Contributor and committer roles
+## Maintainers and roles
 
-SGL uses two roles for participation in this repository.
-
-### Contributors
-
-Anyone who sends a pull request, files an issue, or joins a discussion is a
-contributor. There is no paperwork to sign beyond the per-commit DCO sign-off
-described above. Contributors do not have write access to the repository;
-their changes land through review by a committer.
-
-### Committers
-
-Committers have write access to `meta-sgl` and are responsible for:
-
-- Reviewing and merging pull requests.
-- Keeping CI green on `main`.
-- Triaging issues and security reports.
-- Maintaining the contribution policies in this file.
-
-#### Becoming a committer
-
-A contributor may be proposed as a committer by any existing committer, on
-the basis of a track record of sustained, high-quality contributions to this
-repository. Proposals are made to the existing committers. A proposal is
-accepted if it receives a majority vote of the existing committers. The
-proposing committer records the outcome by updating the maintainers list
-in this file.
-
-#### Stepping down or removing a committer
-
-A committer may step down at any time by opening a pull request that removes
-their entry from the maintainers list.
-
-A committer may be removed for sustained inactivity or for conduct that is
-incompatible with this project. Removal is proposed to the existing
-committers and takes effect on a majority vote of the existing committers,
-excluding the committer under consideration. Removal is recorded by updating
-the maintainers list in this file.
-
-### Current maintainers
-
-- Ramón Roche ([@mrpollo](https://github.com/mrpollo)) — project lead
-- Philip Balister ([@balister](https://github.com/balister))
-- Tim Bird ([@tbird20d](https://github.com/tbird20d))
-- Ivan Perez ([@ivanperez-keera](https://github.com/ivanperez-keera))
-- Rob Woolley ([@robwoolley](https://github.com/robwoolley))
-- Pedro Roque ([@Pedro-Roque](https://github.com/Pedro-Roque))
+See [`MAINTAINERS.md`](MAINTAINERS.md) for the current list of maintainers,
+the Contributor and Committer roles, and the process by which a contributor
+becomes a committer or a committer steps down or is removed.
 
 ## Communication
 
@@ -190,8 +147,8 @@ the maintainers list in this file.
 Please do not file public GitHub issues for suspected security vulnerabilities.
 
 Until a dedicated disclosure channel is in place, contact a maintainer
-privately (see the maintainers list above) and allow time for a fix before
-any public disclosure.
+privately (see [`MAINTAINERS.md`](MAINTAINERS.md)) and allow time for a fix
+before any public disclosure.
 
 ## Code of Conduct
 
