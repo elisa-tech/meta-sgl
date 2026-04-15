@@ -36,7 +36,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Docs released under CC-BY-SA-4.0 license. Code released under MIT license.',
+      message: 'Docs released under CC-BY-4.0 license. Code released under MIT license.',
       copyright: 'ELISA Project a Series of LF Projects, LLC'
     },
   },
