@@ -109,7 +109,7 @@ license it under the terms described below.
   files) is contributed under the [MIT License](LICENSE.MIT).
 - **Documentation** (files under `docs/`, READMEs, and similar prose) is
   currently contributed under
-  [Creative Commons Attribution-ShareAlike 4.0](LICENSE.CC-BY-SA-4.0), as
+  [Creative Commons Attribution 4.0](LICENSE.CC-BY-4.0), as
   stated in [`LICENSE`](LICENSE).
 
 See [`LICENSE`](LICENSE) for the authoritative summary.
