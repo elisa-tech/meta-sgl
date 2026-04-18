@@ -1,0 +1,5 @@
+header:
+  version: 14
+  includes:
+    - kas/sgl-scarthgap-beaglev-fire.yml
+    - kas/spaceros/jazzy-2026.01.yml

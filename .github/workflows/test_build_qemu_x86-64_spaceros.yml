@@ -1,4 +1,4 @@
-name: BeagleV-Fire + SpaceROS
+name: QEMU x86-64 + SpaceROS
 
 on:
   push:
@@ -12,6 +12,6 @@ jobs:
   build:
     uses: ./.github/workflows/build-sgl.yml
     with:
-      kas_config: sgl-scarthgap-spaceros-jazzy-2026.01-beaglev-fire.yml
-      hardware_arch: beaglev-fire
+      kas_config: sgl-scarthgap-spaceros-jazzy-2026.01-qemux86-64.yml
+      hardware_arch: qemux86-64
       build_profile: spaceros
