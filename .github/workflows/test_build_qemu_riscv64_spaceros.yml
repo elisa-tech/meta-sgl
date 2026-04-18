@@ -12,6 +12,6 @@ jobs:
   build:
     uses: ./.github/workflows/build-sgl.yml
     with:
-      kas_config: sgl-scarthgap-spaceros-jazzy-2025.10-qemuriscv64.yml
+      kas_config: sgl-scarthgap-spaceros-jazzy-2026.01-qemuriscv64.yml
       hardware_arch: qemuriscv64
       build_profile: spaceros
