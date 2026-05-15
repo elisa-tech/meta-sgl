@@ -32,3 +32,8 @@ repos:
       meta-python:
       meta-webserver:
       meta-xfce:
+
+  clang-revival:
+    branch: "main"
+    layers:
+      meta-clang-revival: "disabled"
