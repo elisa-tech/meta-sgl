@@ -1,0 +1,18 @@
+name: QEMU x86-64
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-sgl.yml
+    with:
+      kas_config: sgl-scarthgap-spaceros-jazzy-2025.10-qemux86-64.yml
+      hardware_arch: qemux86-64
+      build_profile: spaceros
+      runner_arch: x64
