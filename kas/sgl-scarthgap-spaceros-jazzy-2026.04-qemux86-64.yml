@@ -3,3 +3,7 @@ header:
   includes:
     - kas/sgl-scarthgap-qemux86-64.yml
     - kas/spaceros/jazzy-2026.04.yml
+
+local_conf_header:
+  spaceros: |
+    IMAGE_INSTALL:append = "packagegroup-spaceros-jazzy-world"
