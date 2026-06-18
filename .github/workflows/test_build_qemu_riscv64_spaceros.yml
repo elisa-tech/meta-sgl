@@ -1,4 +1,4 @@
-name: QEMU RISCV64 + SpaceROS
+name: QEMU RISCV64 + Space ROS World
 
 on:
   push:

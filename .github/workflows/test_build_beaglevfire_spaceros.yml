@@ -1,4 +1,4 @@
-name: BeagleV-Fire + SpaceROS
+name: BeagleV-Fire + Space ROS World
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: QEMU x86-64 + SpaceROS
+name: QEMU x86-64 + Space ROS Core
 
 on:
   push:
