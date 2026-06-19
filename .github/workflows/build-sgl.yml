@@ -104,7 +104,7 @@ jobs:
           export BB_NUMBER_THREADS=$CORES
           export PARALLEL_MAKE="-j$CORES"
           mkdir -p "$KAS_WORK_DIR"
-          kas build $KAS_WORK_DIR/layers/meta-sgl/kas/${{ inputs.kas_config }}:$KAS_WORK_DIR/layers/meta-sgl/kas/ci/local-checkout.yml
+          kas build $KAS_WORK_DIR/layers/meta-sgl/kas/${{ inputs.kas_config }}:$KAS_WORK_DIR/layers/meta-sgl/kas/ci/local-checkout.yml -- -q
 
       - name: Collect build artifacts
         if: always()
